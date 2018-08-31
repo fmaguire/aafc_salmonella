@@ -112,39 +112,36 @@ thompson_node.img_style['bgcolor'] = sero_lut['Thompson']
 # highlight the subsampled taxa
 
 subset_nodes = []
-sub_tree = copy.copy(tree)
+#sub_tree = copy.copy(tree)
 for i in "1760 3125 3145 3193 1778 3126 3166 3333 1797 3132 3179 3339 1893 3142 3186".split():
-    node = sub_tree.search_nodes(name=i)[0]
+    node = tree.search_nodes(name=i)[0]
     subset_nodes.append(node)
-    node.name = serovars.loc[node.name, 'Serotype'].replace(',', '_').replace('[', '').replace(']', '').replace(':', '') + '_' + node.name
+    #node.name = serovars.loc[node.name, 'Serotype'].replace(',', '_').replace('[', '').replace(']', '').replace(':', '') + '_' + node.name
 
 
 
-
-sub_tree.prune(subset_nodes)
-with open('../pangenome/anvio_subsample/phylogeny_data.txt', 'w') as fh:
-    fh.write('item_name\tdata_type\tdata_value\n')
-    fh.write('Core_SNP_Phylogeny\tnewick\t{}\n'.format(sub_tree.write(format=1)))
-
-
-
-
-
+#sub_tree.prune(subset_nodes)
+#with open('../pangenome/anvio_subsample/phylogeny_data.txt', 'w') as fh:
+#    fh.write('item_name\tdata_type\tdata_value\n')
+#    fh.write('Core_SNP_Phylogeny\tnewick\t{}\n'.format(sub_tree.write(format=1)))
+#
 
 for node in subset_nodes:
-    node.name = node.name + " * "
-
-
-
-
-
+    node.name = "* "+ node.name
 
 
 tree.set_outgroup(thompson_node)
 for l in tree.iter_leaves():
     l.name = l.name + " (" + l.serovar + ")"
 
+def layout(node):
+    if node.is_leaf():
+        N = ete3.AttrFace("name", fsize=20)
+        ete3.faces.add_face_to_node(N, node, 0, position='aligned')
 
-ts.show_leaf_name = True
+
+
+ts.show_leaf_name = False
+ts.layout_fn = layout
 #ts.show_branch_support = True
-tree.render('phylogeny_serotype.pdf', tree_style=ts)
+tree.render('phylogenyserotype.pdf', tree_style=ts)
