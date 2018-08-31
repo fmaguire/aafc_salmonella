@@ -1,0 +1,4 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+../../data/genomes/1890_irida-submission-4692.fasta.gz	1890_12	1959	2220	IncFII(S)_1	1-262/262	===============	0/0	100.00	100.00	plasmidfinder	CP000858	IncFII(S)_1__CP000858
+../../data/genomes/1890_irida-submission-4692.fasta.gz	1890_12	80069	80711	IncFIB(S)_1	1-643/643	===============	0/0	100.00	100.00	plasmidfinder	FN432031	IncFIB(S)_1__FN432031
+../../data/genomes/1890_irida-submission-4692.fasta.gz	1890_15	70700	70848	IncB/O/K/Z_4	1-149/149	===============	0/0	100.00	97.99	plasmidfinder	FN868832	IncB/O/K/Z_4_FN868832

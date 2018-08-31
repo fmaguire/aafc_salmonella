@@ -1,0 +1,3 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+../../data/genomes/3344_irida-submission-7495.fasta.gz	2017-SEQ-0267_32	10099	10471	IncX1_3	1-373/373	===============	0/0	100.00	100.00	plasmidfinder	CP001123	IncX1_3__CP001123
+../../data/genomes/3344_irida-submission-7495.fasta.gz	2017-SEQ-0267_33	1077	1221	Col(MG828)_1	4-159/262	========/=.....	2/11	55.34	75.64	plasmidfinder	NC_008486	Col(MG828)_1__NC_008486

@@ -1,0 +1,4 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+../../data/genomes/3125_irida-submission-4766.fasta.gz	3125_37	1942	2061	ColRNAI_1	13-130/130	.=======/======	2/2	90.77	89.17	plasmidfinder	DQ298019	ColRNAI_1__DQ298019
+../../data/genomes/3125_irida-submission-4766.fasta.gz	3125_41	1880	1953	ColpVC_1	120-193/193	.........======	0/0	38.34	100.00	plasmidfinder	JX133088	ColpVC_1__JX133088
+../../data/genomes/3125_irida-submission-4766.fasta.gz	3125_42	1773	1846	ColpVC_1	120-193/193	.........======	0/0	38.34	98.65	plasmidfinder	JX133088	ColpVC_1__JX133088

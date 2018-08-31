@@ -1,0 +1,4 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+../../data/genomes/3126_irida-submission-4768.fasta.gz	3126_15	16455	16596	IncI1_1_Alpha	1-142/142	===============	0/0	100.00	100.00	plasmidfinder	AP005147	IncI1_1_Alpha_AP005147
+../../data/genomes/3126_irida-submission-4768.fasta.gz	3126_16	1959	2220	IncFII(S)_1	1-262/262	===============	0/0	100.00	100.00	plasmidfinder	CP000858	IncFII(S)_1__CP000858
+../../data/genomes/3126_irida-submission-4768.fasta.gz	3126_16	80069	80711	IncFIB(S)_1	1-643/643	===============	0/0	100.00	100.00	plasmidfinder	FN432031	IncFIB(S)_1__FN432031
