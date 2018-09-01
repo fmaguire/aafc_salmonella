@@ -3,9 +3,13 @@ import glob
 import sys
 import gzip
 import tqdm
+import os
 
 if __name__ == '__main__':
+
      hits = {}
+     os.system('mkdir -p cmy2_loci')
+     os.system('mkdir -p cmy2_contigs')
      for hmm_table in glob.glob("hmm_output/*.tbl"):
          with open(hmm_table) as fh:
              locus_info = []
@@ -58,11 +62,27 @@ if __name__ == '__main__':
 
                                  print(len(seq_frag))
 
-                                 loci_fh.write('{} {}:{}\n{}\n'.format(accession,
-                                                                  region_start,
-                                                                  region_end,
-                                                                  seq_frag))
+                                 genome_name = genome.split('/')[-1].split('_')[0]
 
-                                 contig_fh.write('{}\n{}\n'.format(accession,
-                                                                   seq))
+                                 accession = ">{}|{}".format(genome_name, hit_contig)
+
+                                 with open('cmy2_loci/' + genome_name + "_cmy2_loci.fas", 'a') as fh:
+                                    loci_fh.write('{} {}:{}\n{}\n'.format(accession,
+                                                                     region_start,
+                                                                     region_end,
+                                                                     seq_frag))
+                                    fh.write('{} {}:{}\n{}\n'.format(accession,
+                                                                     region_start,
+                                                                     region_end,
+                                                                     seq_frag))
+
+
+                                 with open('cmy2_contigs/' + genome_name + "_cmy2_contigs.fas", 'a') as fh:
+                                    fh.write('{}\n{}\n'.format(accession,
+                                                                      seq))
+
+                                    contig_fh.write('{}\n{}\n'.format(accession,
+                                                                      seq))
+
+
 
