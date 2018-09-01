@@ -4,7 +4,7 @@ sir <- read.csv('ast_sir_labels.csv')
 # drop the index column
 sir <- sir[, !(names(sir) %in% "ID")]
 
-pdf(file="upset_all_ast.pdf", onefile=FALSE)
+pdf(file="upsetallast.pdf", onefile=FALSE)
 UpSetR::upset(sir, nsets=12, order.by='freq',  mainbar.y.label = 'Set Frequency', sets.bar.color = "#56B4E9", mb.ratio = c(0.55, 0.45), sets.x.label = "Phenotypic AMR in all Serovars")
 dev.off()
 
