@@ -1,0 +1,15 @@
+ln -s ../../../data/genomes/1797*
+ln -s ../../../data/genomes/3125*
+ln -s ../../../data/genomes/3142*
+ln -s ../../../data/genomes/3186*
+ln -s ../../../data/genomes/1760*
+ln -s ../../../data/genomes/1778*
+ln -s ../../../data/genomes/3126*
+ln -s ../../../data/genomes/3132*
+ln -s ../../../data/genomes/3145*
+ln -s ../../../data/genomes/3179*
+ln -s ../../../data/genomes/3339*
+ln -s ../../../data/genomes/3166*
+ln -s ../../../data/genomes/3333*
+ln -s ../../../data/genomes/1893*
+ln -s ../../../data/genomes/3193*
