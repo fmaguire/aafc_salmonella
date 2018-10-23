@@ -2,7 +2,7 @@
 #do 
 #    anvi-script-FASTA-to-contigs-db $i
 #done
-
+#
 #echo -e "name\tcontigs_db_path" > genomes.tsv
 #mkdir -p rgi aa
 #for i in *.db; 
@@ -15,8 +15,17 @@
 #    cat vf/$i.out6 | awk -F $'\t' 'BEGIN {OFS = FS} {print $1, "VFDB", "", "$2", 0}' >> aa/$i.tsv
 #    anvi-import-functions -c $i -i aa/$i.tsv
 #done
-
+#
 #anvi-gen-genomes-storage -e genomes.tsv -o CMY2CONTIGS-GENOMES.db
+#
+#
+#anvi-pan-genome -g CMY2CONTIGS-GENOMES.db -n CMY2CONTIGS
 
-anvi-pan-genome -g CMY2CONTIGS-GENOMES.db -n CMY2CONTIGS
+anvi-compute-ani --external-genomes genomes.tsv \
+                 --output-dir ANI \
+                 --num-threads 2 \
+                 --pan-db CMY2CONTIGS/CMY2CONTIGS-PAN.db
 
+anvi-import-misc-data --just-do-it final_serotypes.tsv -p CMY2CONTIGS/CMY2CONTIGS-PAN.db --target-data-table layers
+	
+		

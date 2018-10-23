@@ -9,11 +9,18 @@ tree = ete3.Tree('pangenome_snps.phylip.contree')
 serovars = pd.read_csv('../serotyping/final_serotypes.tsv', sep='\t', names=['Index', 'Serotype'])
 serovars['Index'] = serovars['Index'].astype(str)
 serovars = serovars.set_index('Index')
-print(serovars)
+
+with open('../../data/metadata.tsv.csv') as fh:
+    next(fh)
+    farms = {line.split('\t')[0]: line.split('\t')[2].strip() for line in fh}
 
 for leaf in tree.iter_leaves():
     serovar = serovars.loc[leaf.name, 'Serotype']
-    leaf.add_features(serovar=serovar)
+    try:
+        farm = farms[leaf.name]
+    except KeyError:
+        farm = "NO FARM"
+    leaf.add_features(serovar=serovar, farm=farm)
 
 
 sns.set_palette('colorblind')
@@ -131,8 +138,15 @@ for node in subset_nodes:
 
 
 tree.set_outgroup(thompson_node)
+
+with open('../../data/metadata.tsv.csv') as fh:
+    next(fh)
+    farms = {line.split('\t')[0]: line.split('\t')[2].strip() for line in fh}
+
+print(farms)
+
 for l in tree.iter_leaves():
-    l.name = l.name + " (" + l.serovar + ")"
+    l.name = l.name + " (" + l.serovar + ")" + " " + l.farm
 
 def layout(node):
     if node.is_leaf():
